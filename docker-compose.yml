@@ -5,9 +5,11 @@ spamlearner:
     - SERVER=mail.example.org
     - USERNAME=spam@example.org
     - PASSWORD=<password>
-    - RSPAMD_HOST=rspamd.local
+    - RSPAMD_HOST=rspamd
     - RSPAMD_PASS=<password>
     - RSPAMD_COMMAND=learn_spam
+  links:
+    - rspamd:rspamd
 
 hamlearner:
   restart: always
@@ -16,6 +18,8 @@ hamlearner:
     - SERVER=mail.example.org
     - USERNAME=ham@example.org
     - PASSWORD=<password>
-    - RSPAMD_HOST=rspamd.local
+    - RSPAMD_HOST=rspamd
     - RSPAMD_PASS=<password>
     - RSPAMD_COMMAND=learn_ham
+  links:
+    - rspamd:rspamd
