@@ -92,7 +92,9 @@ check_and_learn() {
     check_and_learn
 }
 
+echo Init
 load_defaults
+echo Configure getmail
 configure_getmail
+echo Loop started
 check_and_learn
-
