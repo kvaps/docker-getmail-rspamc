@@ -75,16 +75,11 @@ check_and_learn() {
         
         # Learn letters
         unset RSPAMC_ERROR
-        eval OUTPUT=\`rspamc -h $RSPAMD_HOST -P $RSPAMD_PASS $RSPAMD_COMMAND $files\` || RSPAMC_ERROR=True
-        echo $OUTPUT
+        eval rspamc -h $RSPAMD_HOST -P $RSPAMD_PASS $RSPAMD_COMMAND $files
 
-        # Cleanup if no error
-        if [ -z "$RSPAMC_ERROR" ] && [[ $OUTPUT != *"error"* ]]; then
-            echo Cleanup
-            rm -rf $TMPDIR
-        else
-            echo Error
-        fi
+        # Cleanup
+        echo Cleanup
+        rm -rf $TMPDIR
     
     fi
 
