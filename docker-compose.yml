@@ -1,0 +1,21 @@
+spamlearner:
+  restart: always
+  image: kvaps/getmail-rspamc
+  environment:
+    - SERVER=mail.example.org
+    - USERNAME=spam@example.org
+    - PASSWORD=<password>
+    - RSPAMD_HOST=rspamd.local
+    - RSPAMD_PASS=<password>
+    - RSPAMD_COMMAND=learn_spam
+
+hamlearner:
+  restart: always
+  image: kvaps/getmail-rspamc
+  environment:
+    - SERVER=mail.example.org
+    - USERNAME=ham@example.org
+    - PASSWORD=<password>
+    - RSPAMD_HOST=rspamd.local
+    - RSPAMD_PASS=<password>
+    - RSPAMD_COMMAND=learn_ham
